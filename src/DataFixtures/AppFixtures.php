@@ -9,6 +9,7 @@ use App\Entity\Order;
 use App\Entity\Product;
 use App\Entity\Supplier;
 use App\Entity\User;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -28,6 +29,16 @@ class AppFixtures extends Fixture
 
         $suppliers = [];
         $customers = [];
+
+        $user = new User();
+        $user->setEmail("admin@admin.com")
+            ->setFirstname("Bruno")
+            ->setLastname("Dogbase")
+            ->setPassword($this->encoder->encodePassword($user, "password"))
+            ->setRoles(['ROLE_USER'])
+            ->setCreatedAt(new DateTime());
+
+        $manager->persist($user);
 
         for ($u = 0; $u < 2; $u++) {
             $user = new User();

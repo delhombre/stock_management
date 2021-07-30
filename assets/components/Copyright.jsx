@@ -7,7 +7,7 @@ const Copyright = () => {
 			<Typography variant="body2" color="textSecondary" align="center">
 				{"Copyright © "}
 				<Link color="inherit" href="#">
-					Hello App - Stock Management
+					Bruno Dogbase - Stock Management
 				</Link>{" "}
 				{new Date().getFullYear()}
 				{"."}
